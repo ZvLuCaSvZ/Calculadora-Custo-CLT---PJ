@@ -417,15 +417,15 @@ class CalculadoraCLT:
                                          + (ferias_inss_patronal + decimo_inss_patronal) / 12
         )
 
-        custo_total_empresa_mensal = (
-            salario_bruto
-            + ajuda_custo
-            + fgts
-            + inss_patronal
-            + provisao_ferias_mensal
-            + provisao_decimo_mensal
-        )
         remuneracao_liquida_media_mensal = (
+            liquido_mensal
+          + ajuda_custo
+          + fgts  
+          + (ferias_fgts + decimo_fgts) / 12
+          + (ferias_liquido + decimo_liquido) /12
+        )
+
+        custo_total_empresa_mensal = (
             liquido_mensal
             + ajuda_custo
             + custo_fgts_mensal_total
@@ -596,8 +596,8 @@ class FormatadorResultado:
             f"Provisão 13º mensal: {formatar_brl(resultado.provisao_decimo_mensal)}",
             f"FGTS total mensal: {formatar_brl(resultado.custo_fgts_mensal_total)}",
             f"INSS patronal total mensal: {formatar_brl(resultado.custo_inss_patronal_mensal_total)}",
-            f"Custo total mensal para empresa: {formatar_brl(resultado.custo_total_empresa_mensal)}",
             f"Remuneração líquida média mensal ao empregado: {formatar_brl(resultado.remuneracao_liquida_media_mensal)}",
+            f"Custo total mensal para empresa: {formatar_brl(resultado.custo_total_empresa_mensal)}",
         ]
         if resultado.liquido_desejado is not None:
             linhas.extend(
@@ -807,8 +807,8 @@ if __name__ == "__main__":
     main()
 
 #PyInstaller.__main__.run([
-#   '--noupx',
-#   '--name=CLT x PJ',             
+#  '--noupx',
+#   '--name=Calculadora CLT x PJ',             
 #    '--icon=favicon.ico',          
 #    '--windowed',
 #    '--noconsole',
