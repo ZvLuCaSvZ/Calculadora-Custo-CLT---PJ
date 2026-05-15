@@ -1,6 +1,6 @@
 # CALCULADORA CUSTO CLT x PJ
 
-Projeto simples, em arquitetura monolítica, porém bem estruturado e com funções agrupadas conforme relacionamento.
+Projeto simples, em arquitetura em camadas, porém bem estruturado e com funções agrupadas conforme relacionamento.
 
 ## Execução
 
@@ -11,8 +11,12 @@ Projeto simples, em arquitetura monolítica, porém bem estruturado e com funç�
 ## Estrutura
 
 ```text
-main.py             Arquivo principal do programa, possuí todas as funções, bases de cálculos e configurações de interface.
-requirements.txt    Dependências do projeto
+gui.py                  Interface em Tkinter
+main.py                 Execução do Projeto
+utils.py                Funções auxiliares e de formatação de valores
+helpers.py              Lógica de calculos e padronização das informações para exibição ao usuário.
+config.py               Bases para calculos dos impostos, seguindo as tabelas de 2026.
+requirements.txt        Dependências do projeto
 ```
 
 ## Como executar com janela
